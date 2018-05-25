@@ -2,7 +2,7 @@
 
 $API_URL = 'https://api.line.me/v2/bot/message/reply';
 $ACCESS_TOKEN = 
- 'ZZYViittjZamNdeHQsO8/YAIxRoR87hAjtMRJ70Sf0lK56yZaeLixmhIkRSxBYcrGS1i2bSm1KtLFr9gkni41o/dQHyVRO/WVEql0EHF3zzdIey9tfAWP/4tWJD5LuWy1HMB1nua+LAhmFYEIlTEYYjwdB04t89/1O/w1cDnyilFU='; // Access Token ค่าที่เราสร้างขึ้น
+ 'YViittjZamNdeHQsO8/YAIxRoR87hAjtMRJ70Sf0lK56yZaeLixmhIkRSxBYcrGS1i2bSm1KtLFr9gkni41o/dQHyVRO/WVEql0EHF3zzdIey9tfAWP/4tWJD5LuWy1HMB1nua+LAhmFYEIlTEYYjwdB04t89/1O/w1cDnyilFU='; // Access Token ค่าที่เราสร้างขึ้น
 $POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' . $ACCESS_TOKEN);
 
 $request = file_get_contents('php://input');   // Get request content
@@ -21,7 +21,16 @@ if ( sizeof($request_array['events']) > 0 )
    if( $event['message']['type'] == 'text' )
    {
     $text = $event['message']['text'];
-    $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+     if($text == 'เราจะลบนายออกจากความเป็นเพื่อนของเรา'){
+    $reply_message = 'โทดทีครับผมไปเข้าห้องน้ำมา';
+    }else if($text == 'เป็นบอทฉี่ได้ด้วยเหรอ'){
+       $reply_message = 'อ้าว ทำไมนายถามแมวๆ อย่างนี้ละ';
+    }else if($text == 'วันนี้ว่างไหม'){
+      $reply_message = 'สำหรับ Gobank แล้วผมว่างทุกวันครับ';
+    }else if($text == 'ขอดูรูปน้องแมวหน่อย'){
+      $reply_message = 'https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg';
+    }
+    
    }
    else
     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
