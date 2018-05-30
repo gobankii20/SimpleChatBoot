@@ -21,8 +21,8 @@ if ( sizeof($request_array['events']) > 0 )
    if( $event['message']['type'] == 'text' )
    {
     $text = $event['message']['text'];
-     if($text == 'เราจะลบนายออกจากความเป็นเพื่อนของเรา'){
-    $reply_message = 'โทดทีครับผมไปเข้าห้องน้ำมา';
+    if(strstr($text,"แท็กซี่")){
+    $reply_message = 'กรุณาป้อนจุดรับและจุดส่ง ตัวอย่างเช่น พระรามเก้า, ลาดพร้าว';
     }else if($text == 'เป็นบอทฉี่ได้ด้วยเหรอ'){
        $reply_message = 'อ้าว ทำไมนายถามแมวๆ อย่างนี้ละ';
     }else if($text == 'วันนี้ว่างไหม'){
